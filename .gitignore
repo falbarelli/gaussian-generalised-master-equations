@@ -1,0 +1,21 @@
+.DS_Store
+.mplconfig/
+.CondaPkg/
+*.jl.cov
+*.jl.mem
+examples/output/
+validation/output/
+
+# Earlier exploratory material is kept locally, outside the release contents.
+/Julia_GaussianMolmerQFI_OPO.ipynb
+/REVIEW.md
+/output.png
+/examples/*.jld2
+/examples/*.pdf
+/examples/*.png
+
+# Local configuration and editor/Julia caches.
+.ipynb_checkpoints/
+.julia/
+LocalPreferences.toml
+*.swp

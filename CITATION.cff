@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying paper when using this code."
+title: "Gaussian generalised master equations: code accompanying the paper"
+type: software
+license: MIT
+authors:
+  - family-names: Albarelli
+    given-names: Francesco
+    orcid: "https://orcid.org/0000-0001-5775-168X"
+repository-code: "https://github.com/falbarelli/gaussian-generalised-master-equations"
+preferred-citation:
+  type: article
+  title: "Efficient evaluation of fundamental sensitivity limits and full counting statistics for continuously monitored Gaussian quantum systems"
+  authors:
+    - family-names: Albarelli
+      given-names: Francesco
+      orcid: "https://orcid.org/0000-0001-5775-168X"
+    - family-names: Genoni
+      given-names: Marco G.
+      orcid: "https://orcid.org/0000-0001-7270-4742"

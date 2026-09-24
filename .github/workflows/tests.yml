@@ -1,0 +1,37 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      JULIA_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: julia-actions/setup-julia@v3
+        with:
+          version: '1.13.0'
+      - name: Install core dependencies
+        run: julia --project=. -e 'using Pkg; Pkg.instantiate()'
+      - name: Check standalone solver against analytic dynamics
+        run: julia --project=. test/standalone_solver.jl
+      - name: Run scientific regression tests
+        run: julia --project=. test/runtests.jl
+      - name: Install example dependencies
+        run: julia --project=examples -e 'using Pkg; Pkg.instantiate()'
+      - name: Run short OPO calculations and plots
+        run: |
+          julia --project=examples examples/parametric_oscillator.jl --smoke
+          julia --project=examples examples/parametric_oscillator_plot.jl --smoke
+          julia --project=examples 'examples/parametric_oscillator_eta=1.jl' --smoke
+          julia --project=examples 'examples/parametric_oscillator_eta=1_plot.jl' --smoke
+          julia --project=examples examples/parametric_oscillator_TUR_plot.jl --smoke
