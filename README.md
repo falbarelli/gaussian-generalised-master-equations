@@ -57,8 +57,15 @@ See [the general solver guide](docs/general-odes.md) for the equations, input
 dimensions, output layout, and use from another project.
 
 To load the general solver together with the specialized QFI routines, use
-`include("ReplicaME.jl")` instead. `ReplicaME` is a local module used to organize
-the source files. See [conventions and specialized routines](docs/methods.md).
+`include("GaussianGMEs.jl")` instead. `GaussianGMEs` is a local module used to
+organize the source files. See [conventions and specialized routines](docs/methods.md).
+
+An optional short check compares the general solver with the analytic solution
+of a damped mode with time-dependent frequency:
+
+```sh
+julia --project=. test/standalone_solver.jl
+```
 
 ## Reproduce the figures
 
@@ -84,43 +91,29 @@ analytic TUR comparison, and the two-panel inefficient-detection replica
 comparison. An above-threshold example is also included. Reference outputs
 come from the documented code and can differ from earlier manuscript drafts.
 
-## Tests and numerical checks
-
-```sh
-julia --project=. test/standalone_solver.jl
-julia --project=. test/runtests.jl
-```
-
-Tests include analytic solutions and independent truncated-Fock-space checks.
-Longer convergence studies are in `validation/`. See
-[numerical validation and limitations](docs/numerics.md) before changing the
-parameters, especially for high replica orders or small finite-difference steps.
-
 ## Repository layout
 
 | Location | Contents |
 | --- | --- |
 | `src/GaussianMoments.jl` | Standalone general Gaussian ODE solver and trace norm |
-| `ReplicaME.jl` | Include entry point for all scientific routines |
+| `GaussianGMEs.jl` | Include entry point for all scientific routines |
 | `src/` | Two-sided and replica coefficients, fidelities, QFI, unravellings |
 | `examples/general_odes.jl` | Minimal time-dependent solver example |
 | `examples/` | OPO calculation and plotting scripts; separate dependency environment |
 | `data/reference/` | Saved reference datasets, figures, and provenance |
-| `test/` | Regression tests |
-| `validation/` | Longer numerical checks |
-| `docs/` | Reproduction instructions, API conventions, and numerical limitations |
+| `test/standalone_solver.jl` | Optional analytic check of the general solver |
+| `docs/` | Reproduction instructions and conventions for using the routines |
 
 The two `Project.toml` files describe dependency environments. Their manifests
 record resolved versions for reproduction. Generated files in `examples/output/`
-and `validation/output/` are ignored by Git. Earlier exploratory notebooks and
+are ignored by Git. Earlier exploratory notebooks and
 obsolete local outputs are not part of the maintained code.
 
 ## Citation and support
 
 Please cite the accompanying paper when using these routines; citation metadata
 is provided in [CITATION.cff](CITATION.cff), including the
-[preprint DOI](https://doi.org/10.48550/arXiv.2602.23304). The replica construction follows
-[Yang et al., Phys. Rev. Lett. 136, 070802 (2026)](https://arxiv.org/abs/2504.12400).
+[preprint DOI](https://doi.org/10.48550/arXiv.2602.23304).
 
 For questions or reproducible bug reports, open an issue in this repository.
 Include the Julia version, command, parameters, and error or unexpected result.

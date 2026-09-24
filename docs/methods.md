@@ -1,7 +1,7 @@
 # Conventions and specialized routines
 
 Run the snippets below from the repository root in `julia --project=.`.
-Load `ReplicaME.jl` once per Julia session. The name identifies a local module,
+Load `GaussianGMEs.jl` once per Julia session. The name identifies a local module,
 not a package to install. For the general solver alone, see [general-odes.md](general-odes.md).
 
 
@@ -22,7 +22,7 @@ not a package to install. For the general solver alone, see [general-odes.md](ge
   coefficient builder supports open chains, whose traces are different objects.
 
 ```julia
-include("ReplicaME.jl")
+include("GaussianGMEs.jl")
 using LinearAlgebra
 
 χ, κ, η = 0.45, 1.0, 0.5
@@ -101,3 +101,13 @@ time grid and tuple as `simulate_unravelling`, without its `Ntraj` argument.
 Decrease `dt` to check integration error. The stochastic API remains available
 for trajectory checks; its Euler–Maruyama timestep bias and sampling error
 must both be accounted for when comparing it with the deterministic result.
+
+## Numerical notes
+
+For replica QFI estimates, increasing the order and tightening the numerical
+tolerances address different errors. High-order finite differences can amplify
+roundoff; reduce the parameter step and integration tolerances together when
+checking a new model. The OPO figure scripts use direct Hamiltonian sensitivities
+for zero-mean, undriven dynamics with parameter-independent jump operators and
+initial covariance. A stable finite-order estimate need not have converged to
+the exact output QFI.

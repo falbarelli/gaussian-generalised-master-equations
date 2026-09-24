@@ -1,4 +1,4 @@
-module ReplicaME
+module GaussianGMEs
 
 include("GaussianMoments.jl")
 include("ReplicaCoeffs.jl")

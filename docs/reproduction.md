@@ -126,8 +126,8 @@ sensitivity equations to avoid parameter-difference cancellation at high order.
 
 Homodyne trajectories use a recorded RNG seed. Small differences can remain
 across environments; Monte Carlo curves also require sampling-error and timestep
-checks. Bitwise agreement of generated image files is not expected. See
-[numerical limitations](numerics.md) before changing model parameters.
+checks. Bitwise agreement of generated image files is not expected. See the
+[numerical notes](methods.md#numerical-notes) before changing model parameters.
 
 The historical `--archive` plotting option refers to earlier local datasets
 that are not distributed. Use the reference-data workflow above instead.

@@ -12,7 +12,7 @@ include("src/GaussianMoments.jl")
 using .GaussianMoments
 ```
 
-Alternatively, `include("ReplicaME.jl")` loads all routines. Use one entry point
+Alternatively, `include("GaussianGMEs.jl")` loads all routines. Use one entry point
 per session. Run the complete example with
 `julia --project=. examples/general_odes.jl`.
 

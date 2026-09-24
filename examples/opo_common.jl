@@ -1,4 +1,4 @@
-include(joinpath(@__DIR__, "..", "ReplicaME.jl"))
+include(joinpath(@__DIR__, "..", "GaussianGMEs.jl"))
 using LinearAlgebra
 using Random
 using Dates
