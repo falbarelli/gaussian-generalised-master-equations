@@ -10,6 +10,10 @@ authors:
 repository-code: "https://github.com/falbarelli/gaussian-generalised-master-equations"
 preferred-citation:
   type: article
+  year: 2026
+  journal: arXiv
+  doi: "10.48550/arXiv.2602.23304"
+  url: "https://arxiv.org/abs/2602.23304"
   title: "Efficient evaluation of fundamental sensitivity limits and full counting statistics for continuously monitored Gaussian quantum systems"
   authors:
     - family-names: Albarelli

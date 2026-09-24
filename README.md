@@ -4,6 +4,8 @@ Julia code accompanying **Efficient evaluation of fundamental sensitivity limits
 and full counting statistics for continuously monitored Gaussian quantum systems**,
 by Francesco Albarelli and Marco G. Genoni.
 
+Paper: [arXiv:2602.23304](https://arxiv.org/abs/2602.23304).
+
 The code integrates general Gaussian moment equations and applies them to
 two-sided master equations, replica master equations, and homodyne/heterodyne
 monitoring of an optical parametric oscillator (OPO).
@@ -116,8 +118,8 @@ obsolete local outputs are not part of the maintained code.
 ## Citation and support
 
 Please cite the accompanying paper when using these routines; citation metadata
-is provided in [CITATION.cff](CITATION.cff). Publication identifiers can be added
-there when available. The replica construction follows
+is provided in [CITATION.cff](CITATION.cff), including the
+[preprint DOI](https://doi.org/10.48550/arXiv.2602.23304). The replica construction follows
 [Yang et al., Phys. Rev. Lett. 136, 070802 (2026)](https://arxiv.org/abs/2504.12400).
 
 For questions or reproducible bug reports, open an issue in this repository.
